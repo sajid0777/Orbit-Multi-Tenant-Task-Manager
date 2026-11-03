@@ -1,0 +1,11 @@
+const express = require('express');
+const authenticateToken = require('../middleware/authMiddleware');
+const { listBoards, createBoard, createColumn, updateColumn, deleteColumn, deleteBoard } = require('../controllers/boardController');
+const router = express.Router(); router.use(authenticateToken);
+router.get('/tenant/:tenantId', listBoards);
+router.post('/', createBoard);
+router.post('/columns', createColumn);
+router.patch('/columns/:columnId', updateColumn);
+router.delete('/columns/:columnId', deleteColumn);
+router.delete('/:boardId', deleteBoard);
+module.exports = router;

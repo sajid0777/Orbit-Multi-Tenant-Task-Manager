@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1050" viewBox="0 0 1600 1050">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#7a8aa5"/></marker></defs>
+<rect width="100%" height="100%" fill="#f7f8fc"/>
+<text x="60" y="65" font-family="Arial" font-size="36" font-weight="bold" fill="#18243a">ORBIT · DATABASE ER DIAGRAM</text>
+<text x="60" y="105" font-family="Arial" font-size="18" fill="#5c6780">Tenant isolation · organization → tenant → board → column → task</text>
+<rect x="70" y="180" width="300" height="190" rx="16" fill="white" stroke="#b9c4d8" stroke-width="2"/>
+<rect x="70" y="180" width="300" height="45" rx="14" fill="#e7edff"/>
+<text x="84" y="209" font-family="Arial" font-size="20" font-weight="bold" fill="#24334d">Organization</text>
+<text x="84" y="248" font-family="Arial" font-size="14" fill="#4b5872">PK id</text>
+<text x="84" y="273" font-family="Arial" font-size="14" fill="#4b5872">name</text>
+<text x="84" y="298" font-family="Arial" font-size="14" fill="#4b5872">createdAt</text>
+<text x="84" y="323" font-family="Arial" font-size="14" fill="#4b5872">updatedAt</text>
+<rect x="70" y="480" width="300" height="190" rx="16" fill="white" stroke="#b9c4d8" stroke-width="2"/>
+<rect x="70" y="480" width="300" height="45" rx="14" fill="#eef2ff"/>
+<text x="84" y="509" font-family="Arial" font-size="20" font-weight="bold" fill="#24334d">Membership</text>
+<text x="84" y="548" font-family="Arial" font-size="14" fill="#4b5872">PK id</text>
+<text x="84" y="573" font-family="Arial" font-size="14" fill="#4b5872">FK userId</text>
+<text x="84" y="598" font-family="Arial" font-size="14" fill="#4b5872">FK organizationId</text>
+<text x="84" y="623" font-family="Arial" font-size="14" fill="#4b5872">role: OWNER/ADMIN/MEMBER</text>
+<rect x="70" y="780" width="300" height="180" rx="16" fill="white" stroke="#b9c4d8" stroke-width="2"/>
+<rect x="70" y="780" width="300" height="45" rx="14" fill="#eaf8f0"/>
+<text x="84" y="809" font-family="Arial" font-size="20" font-weight="bold" fill="#24334d">User</text>
+<text x="84" y="848" font-family="Arial" font-size="14" fill="#4b5872">PK id</text>
+<text x="84" y="873" font-family="Arial" font-size="14" fill="#4b5872">name</text>
+<text x="84" y="898" font-family="Arial" font-size="14" fill="#4b5872">email (unique)</text>
+<text x="84" y="923" font-family="Arial" font-size="14" fill="#4b5872">passwordHash</text>
+<rect x="520" y="180" width="300" height="210" rx="16" fill="white" stroke="#b9c4d8" stroke-width="2"/>
+<rect x="520" y="180" width="300" height="45" rx="14" fill="#e4f6f3"/>
+<text x="534" y="209" font-family="Arial" font-size="20" font-weight="bold" fill="#24334d">Tenant</text>
+<text x="534" y="248" font-family="Arial" font-size="14" fill="#4b5872">PK id</text>
+<text x="534" y="273" font-family="Arial" font-size="14" fill="#4b5872">FK organizationId</text>
+<text x="534" y="298" font-family="Arial" font-size="14" fill="#4b5872">name, slug</text>
+<text x="534" y="323" font-family="Arial" font-size="14" fill="#4b5872">UNIQUE organizationId + slug</text>
+<rect x="520" y="500" width="300" height="200" rx="16" fill="white" stroke="#b9c4d8" stroke-width="2"/>
+<rect x="520" y="500" width="300" height="45" rx="14" fill="#eaf8f0"/>
+<text x="534" y="529" font-family="Arial" font-size="20" font-weight="bold" fill="#24334d">TenantMembership</text>
+<text x="534" y="568" font-family="Arial" font-size="14" fill="#4b5872">PK id</text>
+<text x="534" y="593" font-family="Arial" font-size="14" fill="#4b5872">FK tenantId</text>
+<text x="534" y="618" font-family="Arial" font-size="14" fill="#4b5872">FK userId</text>
+<text x="534" y="643" font-family="Arial" font-size="14" fill="#4b5872">role: TENANT_ADMIN/MEMBER</text>
+<rect x="970" y="180" width="300" height="210" rx="16" fill="white" stroke="#b9c4d8" stroke-width="2"/>
+<rect x="970" y="180" width="300" height="45" rx="14" fill="#fff0dd"/>
+<text x="984" y="209" font-family="Arial" font-size="20" font-weight="bold" fill="#24334d">Board</text>
+<text x="984" y="248" font-family="Arial" font-size="14" fill="#4b5872">PK id</text>
+<text x="984" y="273" font-family="Arial" font-size="14" fill="#4b5872">FK organizationId</text>
+<text x="984" y="298" font-family="Arial" font-size="14" fill="#4b5872">FK tenantId</text>
+<text x="984" y="323" font-family="Arial" font-size="14" fill="#4b5872">FK projectId (unique)</text>
+<rect x="970" y="500" width="300" height="180" rx="16" fill="white" stroke="#b9c4d8" stroke-width="2"/>
+<rect x="970" y="500" width="300" height="45" rx="14" fill="#fff6e8"/>
+<text x="984" y="529" font-family="Arial" font-size="20" font-weight="bold" fill="#24334d">BoardColumn</text>
+<text x="984" y="568" font-family="Arial" font-size="14" fill="#4b5872">PK id</text>
+<text x="984" y="593" font-family="Arial" font-size="14" fill="#4b5872">FK boardId</text>
+<text x="984" y="618" font-family="Arial" font-size="14" fill="#4b5872">name</text>
+<text x="984" y="643" font-family="Arial" font-size="14" fill="#4b5872">position</text>
+<rect x="1320" y="180" width="210" height="210" rx="16" fill="white" stroke="#b9c4d8" stroke-width="2"/>
+<rect x="1320" y="180" width="210" height="45" rx="14" fill="#e7edff"/>
+<text x="1334" y="209" font-family="Arial" font-size="20" font-weight="bold" fill="#24334d">Project</text>
+<text x="1334" y="248" font-family="Arial" font-size="14" fill="#4b5872">PK id</text>
+<text x="1334" y="273" font-family="Arial" font-size="14" fill="#4b5872">FK organizationId</text>
+<text x="1334" y="298" font-family="Arial" font-size="14" fill="#4b5872">FK tenantId?</text>
+<text x="1334" y="323" font-family="Arial" font-size="14" fill="#4b5872">name, description</text>
+<rect x="1320" y="500" width="210" height="260" rx="16" fill="white" stroke="#b9c4d8" stroke-width="2"/>
+<rect x="1320" y="500" width="210" height="45" rx="14" fill="#fce8ee"/>
+<text x="1334" y="529" font-family="Arial" font-size="20" font-weight="bold" fill="#24334d">Task</text>
+<text x="1334" y="568" font-family="Arial" font-size="14" fill="#4b5872">PK id</text>
+<text x="1334" y="593" font-family="Arial" font-size="14" fill="#4b5872">FK projectId</text>
+<text x="1334" y="618" font-family="Arial" font-size="14" fill="#4b5872">FK boardId?</text>
+<text x="1334" y="643" font-family="Arial" font-size="14" fill="#4b5872">FK columnId?</text>
+<text x="1334" y="668" font-family="Arial" font-size="14" fill="#4b5872">FK assigneeId?</text>
+<text x="1334" y="693" font-family="Arial" font-size="14" fill="#4b5872">FK creatorId</text>
+<text x="1334" y="718" font-family="Arial" font-size="14" fill="#4b5872">status, priority, version</text>
+<rect x="520" y="800" width="300" height="170" rx="16" fill="white" stroke="#b9c4d8" stroke-width="2"/>
+<rect x="520" y="800" width="300" height="45" rx="14" fill="#f1eaff"/>
+<text x="534" y="829" font-family="Arial" font-size="20" font-weight="bold" fill="#24334d">ActivityLog</text>
+<text x="534" y="868" font-family="Arial" font-size="14" fill="#4b5872">PK id</text>
+<text x="534" y="893" font-family="Arial" font-size="14" fill="#4b5872">FK taskId?</text>
+<text x="534" y="918" font-family="Arial" font-size="14" fill="#4b5872">FK userId</text>
+<text x="534" y="943" font-family="Arial" font-size="14" fill="#4b5872">action, details</text>
+<text x="534" y="968" font-family="Arial" font-size="14" fill="#4b5872">createdAt</text>
+<line x1="370" y1="260" x2="520" y2="260" stroke="#7a8aa5" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="445" y="242" font-family="Arial" font-size="13" fill="#65728a">1:N</text>
+<line x1="220" y1="370" x2="220" y2="480" stroke="#7a8aa5" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="220" y="407" font-family="Arial" font-size="13" fill="#65728a">1:N</text>
+<line x1="370" y1="570" x2="520" y2="570" stroke="#7a8aa5" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="445" y="552" font-family="Arial" font-size="13" fill="#65728a">user/organization</text>
+<line x1="670" y1="390" x2="670" y2="500" stroke="#7a8aa5" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="670" y="427" font-family="Arial" font-size="13" fill="#65728a">1:N</text>
+<line x1="820" y1="270" x2="970" y2="270" stroke="#7a8aa5" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="895" y="252" font-family="Arial" font-size="13" fill="#65728a">1:N</text>
+<line x1="1120" y1="390" x2="1120" y2="500" stroke="#7a8aa5" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="1120" y="427" font-family="Arial" font-size="13" fill="#65728a">1:N</text>
+<line x1="1270" y1="270" x2="1320" y2="270" stroke="#7a8aa5" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="1295" y="252" font-family="Arial" font-size="13" fill="#65728a">1:1</text>
+<line x1="1420" y1="390" x2="1420" y2="500" stroke="#7a8aa5" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="1420" y="427" font-family="Arial" font-size="13" fill="#65728a">1:N</text>
+<line x1="670" y1="700" x2="670" y2="800" stroke="#7a8aa5" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="670" y="732" font-family="Arial" font-size="13" fill="#65728a">user/task audit</text>
+<line x1="820" y1="590" x2="1320" y2="600" stroke="#7a8aa5" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="1070" y="577" font-family="Arial" font-size="13" fill="#65728a">tenant scope</text>
+</svg>
