@@ -12,11 +12,14 @@ if (!token || !projectId) {
   process.exit(1);
 }
 
-const socket = io("http://localhost:5000", {
-  auth: { token },
-  reconnection: false,
-  timeout: 5000,
-});
+const socket = io(
+  import.meta.env.VITE_API_URL?.replace(/\/api\/?$/, "") || "http://localhost:5000",
+  {
+    auth: { token },
+    reconnection: false,
+    timeout: 5000,
+  }
+);
 
 socket.on("connect", () => {
   console.log("SUCCESS: Socket.IO connected!");
